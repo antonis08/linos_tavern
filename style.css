@@ -1,0 +1,191 @@
+ /* General Styles */
+ :root {
+    --primary-color: #558B2F; /* Dark Green */
+    --secondary-color: #DCEDC8; /* Light Green */
+    --accent-color: #33691E; /* Very Dark Green */
+    --text-color: #333;
+    --background-color: #F1F8E9; /* Very Light Green */
+    --highlight-color: #A5D6A7; /* Muted Green */
+    --font-family: 'Arial', sans-serif;
+   }
+  
+   body {
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.7;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+   }
+  
+   /* Typography */
+   h1,
+   h2,
+   h3 {
+    font-weight: 600;
+    color: var(--accent-color);
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+   }
+  
+   h1 {
+    font-size: 2.5rem;
+   }
+  
+   h2 {
+    font-size: 2rem;
+   }
+  
+   h3 {
+    font-size: 1.5rem;
+   }
+  
+   p {
+    margin-bottom: 1.2rem;
+   }
+  
+   /* Header */
+   header {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 1.5rem 0;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative; /* For the mobile menu */
+   }
+  
+   nav ul {
+    padding: 0;
+    list-style: none;
+   }
+  
+   nav li {
+    display: inline;
+    margin: 0 1.2rem;
+   }
+  
+   nav a {
+    color: var(--secondary_color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+   }
+  
+   nav a:hover {
+    color: #fff;
+   }
+  
+   /* Hamburger Menu (Mobile) */
+   .hamburger {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 1.2rem;
+    right: 1.5rem;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+   }
+  
+   /* Hero Section */
+   .hero {
+    background-color: var(--secondary-color);
+    padding: 4rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* Hide the waves */
+   }
+  
+   .hero img {
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    margin-bottom: 1.5rem;
+   }
+  
+   .button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--secondary-color);
+    padding: 0.8rem 2rem;
+    text-decoration: none;
+    border-radius: 7px;
+    margin-top: 1.5rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+   }
+  
+   .button:hover {
+    background-color: #1A3B0B; /* Darker green */
+   }
+  
+   /* Sections */
+   section {
+    padding: 4rem 0;
+    text-align: center;
+   }
+  
+   .about {
+    background-color: var(--background-color);
+   }
+  
+   .featured {
+    background-color: #E8F5E9; /* Slightly darker light green */
+   }
+  
+   /* Dish Styling */
+   .dish {
+    display: inline-block;
+    width: 45%;
+    margin: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background-color: var(--background-color);
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+   }
+  
+   .dish:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.18);
+   }
+  
+   .dish img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+   }
+  
+   /* Menu */
+   .menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 800px;
+   }
+  
+   .menu li {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #E0E0E0;
+    text-align: left;
+   }
+  
+   .menu h3 {
+    margin-top: 2rem;
+   }
+  
+   /* Gallery */
+   .gallery-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+   }
+  
+   .gallery-images img {
+    width: calc(30% - 1rem);
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, )}
+  
