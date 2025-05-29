@@ -12,13 +12,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // Simple Image Modal (Example - adapt for your gallery)
     const galleryImages = document.querySelectorAll('.gallery-images img');
   
-    galleryImages.forEach(img => {
-    img.addEventListener('click', function () {
-    // You'd typically open a modal/lightbox here
-    // For simplicity, let's just alert the image source
-    alert('Image clicked: ' + img.src);
-    });
-    });
   
     //Form Submission Handling(Example)
     const contactForm = document.getElementById('contact-form'); // Assuming you add a contact form
