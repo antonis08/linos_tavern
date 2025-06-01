@@ -203,3 +203,41 @@
     .schedule td{
       padding: 10px;
     }
+
+  .instagram-button {
+            display: inline-flex; /* Allows icon and text to sit nicely side-by-side */
+            align-items: center; /* Vertically align icon and text */
+            gap: 0.5rem; /* Space between icon and text */
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); /* Instagram gradient */
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px; /* Slightly rounded corners */
+            text-decoration: none; /* Remove underline from link */
+            font-size: 1.1rem;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effect */
+        }
+
+        .instagram-button:hover {
+            transform: translateY(-2px); /* Lift button slightly on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+        }
+
+        .instagram-button svg {
+            width: 24px; /* Size of the Instagram icon */
+            height: 24px;
+            fill: white; /* Color of the SVG icon */
+        }
+
+        /* Basic responsiveness for smaller screens */
+        @media (max-width: 600px) {
+            .instagram-button {
+                font-size: 1rem;
+                padding: 0.6rem 1.2rem;
+            }
+            .instagram-button svg {
+                width: 20px;
+                height: 20px;
+            }
+        }
