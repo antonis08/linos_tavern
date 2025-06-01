@@ -199,7 +199,7 @@ section {
         white-space: normal; /* Allow text to wrap within table cells */
     }
 
-    
+  }
 /* Menu */
 .menu ul {
     list-style: none;
@@ -449,7 +449,7 @@ footer {
 
 
 /* Desktop Devices (min-width: 769px) */
-@media (min-width: 769px) {
+@media (min-width: 769px){
     /* Hide hamburger on desktop */
     .hamburger {
         display: none;
@@ -476,4 +476,4 @@ footer {
         display: inline-block;
         margin: 0 1.2rem;
     }
-}
+  }
