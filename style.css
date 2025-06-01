@@ -1,5 +1,5 @@
- /* General Styles */
- :root {
+/* General Styles */
+:root {
     --primary-color: #558B2F; /* Dark Green */
     --secondary-color: #DCEDC8; /* Light Green */
     --accent-color: #33691E; /* Very Dark Green */
@@ -7,77 +7,94 @@
     --background-color: #F1F8E9; /* Very Light Green */
     --highlight-color: #A5D6A7; /* Muted Green */
     --font-family: 'Arial', sans-serif;
-   }
-  
-   body {
+}
+
+/* 1. HTML & BODY FIXES FOR STICKY FOOTER */
+html, body {
+    height: 100%; /* Important: Make html and body take full height */
+    margin: 0; /* Ensure no default margins */
+    padding: 0; /* Ensure no default padding */
+}
+
+body {
     font-family: var(--font-family);
-    margin: 0;
-    padding: 0;
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.7;
     overflow-x: hidden; /* Prevent horizontal scroll */
-   }
-  
-   /* Typography */
-   h1,
-   h2,
-   h3 {
+}
+
+/* 2. NEW CONTAINER FOR STICKY FOOTER LAYOUT */
+.page-container {
+    display: flex;
+    flex-direction: column; /* Stacks children vertically */
+    min-height: 100vh; /* Ensures it's at least the height of the viewport */
+}
+
+/* 3. NEW RULE: Main content area needs to grow */
+main { /* Assuming you use <main> to wrap your sections */
+    flex-grow: 1; /* This makes the main content area expand to fill available space, pushing the footer down */
+}
+
+/* Typography */
+h1,
+h2,
+h3 {
     font-weight: 600;
     color: var(--accent-color);
     margin-bottom: 0.75rem;
     line-height: 1.2;
-   }
-  
-   h1 {
+}
+
+h1 {
     font-size: 2.5rem;
-   }
-  
-   h2 {
+}
+
+h2 {
     font-size: 2rem;
-   }
-  
-   h3 {
+}
+
+h3 {
     font-size: 1.5rem;
-   }
-  
-   p {
+}
+
+p {
     margin-bottom: 1.2rem;
-   }
-  
-   /* Header */
-   header {
+}
+
+/* Header */
+header {
     background-color: var(--primary-color);
     color: var(--secondary-color);
     padding: 1.5rem 0;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: relative; /* For the mobile menu */
-   }
-  
-   nav ul {
+}
+
+nav ul {
     padding: 0;
     list-style: none;
-   }
-  
-   nav li {
+}
+
+nav li {
     display: inline;
     margin: 0 1.2rem;
-   }
-  
-   nav a {
-    color: var(--secondary_color);
+}
+
+nav a {
+    color: var(--secondary-color);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
-   }
-  
-   nav a:hover {
+}
+
+nav a:hover {
     color: #fff;
-   }
-  
-   /* Hamburger Menu (Mobile) */
-   .hamburger {
+}
+
+/* Hamburger Menu (Mobile) */
+.hamburger {
     display: none; /* Hidden by default */
     position: absolute;
     top: 1.2rem;
@@ -85,26 +102,26 @@
     cursor: pointer;
     font-size: 1.5rem;
     color: var(--secondary-color);
-   }
-  
-   /* Hero Section */
-   .hero {
+}
+
+/* Hero Section */
+.hero {
     background-color: var(--secondary-color);
     padding: 4rem 0;
     text-align: center;
     position: relative;
     overflow: hidden; /* Hide the waves */
-   }
-  
-   .hero img {
+}
+
+.hero img {
     width: 80%;
     max-width: 600px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     margin-bottom: 1.5rem;
-   }
-  
-   .button {
+}
+
+.button {
     display: inline-block;
     background-color: var(--accent-color);
     color: var(--secondary-color);
@@ -114,28 +131,28 @@
     margin-top: 1.5rem;
     font-weight: 500;
     transition: background-color 0.3s ease;
-   }
-  
-   .button:hover {
+}
+
+.button:hover {
     background-color: #1A3B0B; /* Darker green */
-   }
-  
-   /* Sections */
-   section {
+}
+
+/* Sections */
+section {
     padding: 4rem 0;
     text-align: center;
-   }
-  
-   .about {
+}
+
+.about {
     background-color: var(--background-color);
-   }
-  
-   .featured {
+}
+
+.featured {
     background-color: #E8F5E9; /* Slightly darker light green */
-   }
-  
-   /* Dish Styling */
-   .dish {
+}
+
+/* Dish Styling */
+.dish {
     display: inline-block;
     width: 45%;
     margin: 1.5rem;
@@ -144,109 +161,197 @@
     background-color: var(--background-color);
     box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-   }
-  
-   .dish:hover {
+}
+
+.dish:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 12px rgba(0, 0, 0, 0.18);
-   }
-  
-   .dish img {
+}
+
+.dish img {
     width: 100%;
     border-radius: 10px;
     margin-bottom: 1rem;
-   }
-  
-   /* Menu */
-   .menu ul {
+}
+
+/* Menu */
+.menu ul {
     list-style: none;
     padding: 0;
     margin: 0 auto;
     max-width: 800px;
-   }
-  
-   .menu li {
+}
+
+.menu li {
     padding: 0.75rem 0;
     border-bottom: 1px solid #E0E0E0;
     text-align: left;
-   }
-  
-   .menu h3 {
+}
+
+.menu h3 {
     margin-top: 2rem;
-   }
-  
-   /* Gallery */
-   .gallery-images {
+}
+
+/* Gallery */
+.gallery-images {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
     padding: 1rem;
-   }
-  
-   .gallery-images img {
+}
+
+.gallery-images img {
     width: calc(30% - 1rem);
     border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, )}
-  
-  @media(max-width: 768px){
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+@media(max-width: 768px){
     .gallery-images img{
-      width: 90%;
+        width: 90%;
     }
-  }
+}
 
-    .schedule{
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
+.schedule {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.schedule td {
+    padding: 10px;
+}
+
+/* 4. FOOTER NEW DESIGN */
+footer {
+    background-color: var(--primary-color); /* Dark Green background */
+    color: var(--secondary-color); /* Light Green text */
+    padding: 3rem 1rem; /* More vertical padding */
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow on top */
+    display: flex;
+    flex-direction: column; /* Stack main content and bottom bar */
+    align-items: center; /* Center items horizontally within the footer */
+    gap: 2rem; /* Adjusted gap for better vertical separation between footer sections */
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow sections to wrap on smaller screens */
+    justify-content: space-around; /* Distribute sections evenly (will center for 2 items) */
+    gap: 2rem; /* Space between flex items */
+    max-width: 900px; /* Limit width for a cleaner two-column layout */
+    width: 100%;
+}
+
+.footer-section {
+    flex: 1; /* Allow sections to grow */
+    min-width: 280px; /* Minimum width before wrapping */
+    padding: 0 1rem;
+    text-align: center; /* CHANGED: Now centered for all screen sizes */
+}
+
+.footer-section h3 {
+    color: white; /* Headings in white for contrast */
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.footer-section p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem; /* Tighter spacing for contact lines */
+}
+
+/* Phone Number Link with Icon */
+.footer-link-icon {
+    display: inline-flex; /* Align icon and text */
+    align-items: center;
+    gap: 0.5rem; /* Space between icon and text */
+    color: var(--secondary-color); /* Link color matches footer text */
+    text-decoration: none;
+    transition: color 0.3s ease;
+    margin-bottom: 0.5rem; /* Spacing below the phone link */
+}
+
+.footer-link-icon:hover {
+    color: white; /* White on hover */
+}
+
+.footer-link-icon svg {
+    width: 20px; /* Size of internal icons */
+    height: 20px;
+    fill: var(--secondary-color); /* Icon color matches link color */
+    transition: fill 0.3s ease;
+}
+
+.footer-link-icon:hover svg {
+    fill: white; /* Icon turns white on hover */
+}
+
+/* Social Icons Container (for Instagram) */
+.social-icons {
+    display: flex;
+    gap: 15px; /* Space between social icons */
+    margin-top: 1rem;
+    justify-content: center; /* CHANGED: Now centered for all screen sizes */
+}
+
+.social-icon-link {
+    display: inline-flex; /* Make link a flex container for the icon */
+    align-items: center;
+    justify-content: center;
+    width: 40px; /* Fixed size for the clickable area */
+    height: 40px;
+    border-radius: 50%; /* Make them round */
+    background-color: var(--accent-color); /* Very Dark Green background for icons */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.social-icon-link:hover {
+    background-color: #1A3B0B; /* Darker green on hover */
+    transform: translateY(-3px); /* Lift effect on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.social-icon-link svg {
+    width: 24px; /* Icon size */
+    height: 24px;
+    fill: white; /* White color for the social icon */
+}
+
+/* Footer Bottom Bar */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+    padding-top: 1.5rem;
+    width: 100%;
+    font-size: 0.85rem;
+    color: var(--secondary-color);
+}
+
+.footer-bottom p {
+    margin: 0.5rem 0;
+}
+
+/* Responsive adjustments for smaller screens (no changes needed here as they are now default) */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column; /* Stack sections vertically */
+        align-items: center; /* Center sections */
+        /* text-align: center; No longer needed here as it's default for .footer-section */
     }
-    .schedule td{
-      padding: 10px;
+
+    .footer-section {
+        min-width: unset; /* Remove min-width constraint */
+        width: 100%; /* Take full width */
+        padding: 0 1rem;
     }
 
-  .instagram-button {
-            display: inline-flex; /* Allows icon and text to sit nicely side-by-side */
-            align-items: center; /* Vertically align icon and text */
-            gap: 0.5rem; /* Space between icon and text */
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); /* Instagram gradient */
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px; /* Slightly rounded corners */
-            text-decoration: none; /* Remove underline from link */
-            font-size: 1.1rem;
-            font-weight: bold;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-            transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effect */
-        }
+    .footer-section h3 {
+        margin-top: 1.5rem; /* Add some space above headings when stacked */
+    }
 
-        .instagram-button:hover {
-            transform: translateY(-2px); /* Lift button slightly on hover */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
-        }
-
-        .instagram-button svg {
-            width: 24px; /* Size of the Instagram icon */
-            height: 24px;
-            fill: white; /* Color of the SVG icon */
-        }
-
-        /* Basic responsiveness for smaller screens */
-        @media (max-width: 600px) {
-            .instagram-button {
-                font-size: 1rem;
-                padding: 0.6rem 1.2rem;
-            }
-            .instagram-button svg {
-                width: 20px;
-                height: 20px;
-            }
-        }
-
-        footer{
-          background-color: var(--primary-color);
-          color: var(--secondary-color);
-          padding: 1.5rem 0;
-          text-align: center;
-          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-          position: relative;
-        }
+    /* .social-icons No longer needs justify-content: center here as it's default */
+}
