@@ -183,6 +183,23 @@ section {
     margin-bottom: 1rem;
 }
 
+
+@media (max-width: 768px) {
+    /* ... (Your existing mobile styles) ... */
+
+    /* Adjust .dish width for mobile to prevent overflow */
+    .dish {
+        width: calc(100% - 3rem); /* Take full width minus the 1.5rem margin on each side (total 3rem) */
+        display: block; /* Make it stack vertically instead of trying to be inline-block */
+        margin: 1.5rem auto; /* Center the dish block horizontally */
+    }
+
+    /* Optional: Ensure table content wraps if cells are still too narrow */
+    .schedule td {
+        white-space: normal; /* Allow text to wrap within table cells */
+    }
+
+    
 /* Menu */
 .menu ul {
     list-style: none;
