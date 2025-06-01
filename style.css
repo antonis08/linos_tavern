@@ -9,6 +9,14 @@
     --font-family: 'Arial', sans-serif;
 }
 
+/* Universal Box-Sizing for consistent layout */
+/* This is often the fix for unwanted horizontal scrollbars/overflow issues. */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 /* HTML & BODY FIXES FOR STICKY FOOTER */
 html,
 body {
@@ -22,7 +30,7 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.7;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 /* NEW CONTAINER FOR STICKY FOOTER LAYOUT */
