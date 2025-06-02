@@ -209,7 +209,7 @@ section {
 }
 
 .menu li {
-    padding: 0.75rem 0;
+    padding: 0.75rem 5%;
     border-bottom: 1px solid #E0E0E0;
     text-align: left;
 }
