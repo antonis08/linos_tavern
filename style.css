@@ -74,23 +74,34 @@ p {
 header {
     background-color: var(--primary-color);
     color: var(--secondary-color);
-    padding: 1.5rem 0; /* Default padding for desktop */
-    text-align: center; /* This will be overridden by flexbox on mobile */
+    /* padding: 1.5rem 0; -- Removed from here, handled by .header-content on desktop */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     position: relative; /* For the mobile menu positioning */
+    display: flex; /* Added for general header layout */
+    justify-content: center; /* Centers .header-content on desktop if it has a max-width */
+    align-items: center; /* Vertically aligns items in the header */
+    padding: 1rem 0; /* A default vertical padding for all screen sizes */
 }
 
-/* Desktop Navigation (default) */
+/* Styling for the logo image within the header */
+.header-logo {
+    height: auto; /* Maintain aspect ratio */
+    max-width: 150px; /* Default size for the logo */
+}
+
+/* Desktop Navigation (default for wide screens, mobile overrides) */
 nav ul {
     padding: 0;
     list-style: none;
     display: flex; /* Make it a flex container for horizontal items */
-    justify-content: center; /* Center the navigation items */
+    justify-content: center; /* Center the navigation items (will be flex-end on desktop) */
 }
 
 nav li {
-    display: inline-block; /* Changed from inline to inline-block for better spacing */
+    display: inline-block;
     margin: 0 1.2rem;
+    text-align: center;
+    font-weight: bolder;
 }
 
 nav a {
@@ -183,23 +194,6 @@ section {
     margin-bottom: 1rem;
 }
 
-
-@media (max-width: 768px) {
-    /* ... (Your existing mobile styles) ... */
-
-    /* Adjust .dish width for mobile to prevent overflow */
-    .dish {
-        width: calc(100% - 3rem); /* Take full width minus the 1.5rem margin on each side (total 3rem) */
-        display: block; /* Make it stack vertically instead of trying to be inline-block */
-        margin: 1.5rem auto; /* Center the dish block horizontally */
-    }
-
-    /* Optional: Ensure table content wraps if cells are still too narrow */
-    .schedule td {
-        white-space: normal; /* Allow text to wrap within table cells */
-    }
-
-  }
 /* Menu */
 .menu ul {
     list-style: none;
@@ -360,10 +354,22 @@ footer {
 /* --- Responsive Adjustments --- */
 
 /* Mobile Devices (max-width: 768px) */
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     /* Gallery Images on Mobile */
     .gallery-images img {
         width: 90%;
+    }
+
+    /* Adjust .dish width for mobile to prevent overflow */
+    .dish {
+        width: calc(100% - 3rem); /* Take full width minus the 1.5rem margin on each side (total 3rem) */
+        display: block; /* Make it stack vertically instead of trying to be inline-block */
+        margin: 1.5rem auto; /* Center the dish block horizontally */
+    }
+
+    /* Optional: Ensure table content wraps if cells are still too narrow */
+    .schedule td {
+        white-space: normal; /* Allow text to wrap within table cells */
     }
 
     /* Header layout for mobile: Logo on left, Hamburger on right */
@@ -374,16 +380,25 @@ footer {
         padding: 1rem 1.5rem; /* Adjusted padding for mobile header */
     }
 
-    header img {
+    /* Make the header-content div also a flex container on mobile
+       to keep the logo and nav next to each other if they are forced to be */
+    .header-content {
+        display: flex;
+        flex-grow: 1; /* Allow it to take available space */
+        justify-content: flex-start; /* Push content to the left */
+        align-items: center;
+    }
+
+    .header-logo {
         width: auto; /* Override inline width for better control */
         max-width: 120px; /* Adjust logo size for mobile */
         height: auto;
+        margin-right: 1.5rem; /* Space between logo and hamburger */
     }
 
     /* Show the hamburger icon on mobile */
     .hamburger {
         display: block;
-        /* No position:absolute needed here; flexbox will handle positioning */
     }
 
     /* Mobile Navigation Menu */
@@ -449,10 +464,33 @@ footer {
 
 
 /* Desktop Devices (min-width: 769px) */
-@media (min-width: 769px){
+@media (min-width: 1000px){
     /* Hide hamburger on desktop */
     .hamburger {
         display: none;
+    }
+
+    /* Ensure header content is displayed as flex */
+    .header-content {
+        display: flex; /* Make this a flex container */
+        justify-content: space-between; /* Pushes logo to left, nav to right */
+        align-items: center; /* Vertically aligns logo and nav */
+        max-width: 1200px; /* Optional: Set a max-width for your header content */
+        width: 90%; /* Adjust width as needed for overall header content */
+        margin: 0 auto; /* Center the content horizontally */
+        padding: 1.5rem; /* Add padding to the header content itself */
+    }
+
+    /* Make the main header background span full width, but its internal content is controlled by .header-content */
+    header {
+        padding: 0; /* Remove header's own padding on desktop */
+    }
+
+    /* Adjust logo size for desktop */
+    .header-logo {
+        max-width: 200px; /* Adjust logo size for desktop */
+        height: auto;
+        margin-right: 2rem; /* Space between logo and navigation */
     }
 
     /* Reset navigation styles for desktop to ensure it's always visible */
@@ -462,18 +500,21 @@ footer {
         opacity: 1; /* Ensure visible */
         visibility: visible; /* Ensure visible */
         box-shadow: none; /* Remove shadow if applied by mobile rules */
+        flex-grow: 1; /* Allows nav to take available space */
+        text-align: right; /* Aligns its children (the ul) to the right */
     }
 
-    /* Ensure desktop navigation list items are horizontal */
+    /* Ensure desktop navigation list items are horizontal and justified to the end */
     nav ul {
         display: flex;
         flex-direction: row;
-        justify-content: center;
+        justify-content: flex-end; /* Pushes menu items to the right */
         padding: 0;
+        margin: 0; /* Remove default margin */
     }
 
     nav li {
         display: inline-block;
         margin: 0 1.2rem;
     }
-  }
+}
